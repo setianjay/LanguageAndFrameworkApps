@@ -4,15 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink"
     tools:context=".MainActivity">
 
+    <View
+        android:id="@+id/vw_header"
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:background="@drawable/shape_header_main_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_menus"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/icon_menu"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="22dp"
+        android:src="@drawable/icon_user"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/tv_say_hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        style="@style/textPrimary18"
+        android:text="@string/hello_hari_setiaji"
+        android:layout_marginTop="31dp"
+        android:layout_marginStart="29dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_menus"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_label_explain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textPrimary14"
+        android:text="@string/lets_learn_programming_language"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="29dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_say_hello"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/container_content"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:orientation="vertical"
+        android:background="@drawable/shape_content_container_main_view"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="29dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_explain">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/tabLayoutStyle"
+            app:tabSelectedTextColor="@color/pink_dark"
+            app:tabIndicatorColor="@color/pink_dark"
+            android:layout_marginTop="14dp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
