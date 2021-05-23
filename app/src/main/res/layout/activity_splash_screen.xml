@@ -4,6 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink_dark"
     tools:context=".SplashScreen">
+
+    <ImageView
+        android:id="@+id/iv_splashscreen"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo_splashscreen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_label_splashscreen1"
+        style="@style/textPrimary18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="@string/let_s_find_out"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_splashscreen" />
+
+    <TextView
+        android:id="@+id/tv_label_splashscreen2"
+        style="@style/textPrimary18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/history_programming_language"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_splashscreen1" />
+
+    <View
+        android:id="@+id/vw_divider1"
+        style="@style/dividerSplashScreen"
+        android:layout_marginEnd="21dp"
+        app:layout_constraintTop_toTopOf="@+id/tv_owner"
+        app:layout_constraintEnd_toStartOf="@id/tv_owner"
+        app:layout_constraintBottom_toBottomOf="@id/tv_owner" />
+
+    <TextView
+        android:id="@+id/tv_owner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textSecondaryWhiteNotStrong12"
+        android:text="@string/hari_setiaji_indonesia"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/vw_divider2"
+        style="@style/dividerSplashScreen"
+        android:layout_marginStart="21dp"
+        app:layout_constraintTop_toTopOf="@id/tv_owner"
+        app:layout_constraintStart_toEndOf="@id/tv_owner"
+        app:layout_constraintBottom_toBottomOf="@id/tv_owner" />
+
+    <TextView
+        android:id="@+id/tv_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textSecondaryWhiteNotStrong12"
+        android:text="@string/by"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_owner" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

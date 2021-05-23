@@ -10,4 +10,7 @@
 
     <color name="pink_dark">#F25287</color>
     <color name="pink">#FAE2F3</color>
+    <color name="grey_dark">#716B6B</color>
+    <color name="white_not_strong">#FFF9F9</color>
+
 </resources>

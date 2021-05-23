@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LanguageAndFrameworkApps</string>
+    <string name="let_s_find_out">Lets Find Out</string>
+    <string name="history_programming_language">History Programming Language</string>
+    <string name="hari_setiaji_indonesia">Hari Setiaji (Indonesia)</string>
+    <string name="by">By</string>
+
 </resources>
