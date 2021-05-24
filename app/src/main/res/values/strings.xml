@@ -6,5 +6,7 @@
     <string name="by">By</string>
     <string name="hello_hari_setiaji">Hello, Hari Setiaji</string>
     <string name="lets_learn_programming_language">Lets Learn Programming Language</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
