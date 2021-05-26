@@ -12,6 +12,7 @@ import com.setianjay.languageandframeworkapps.databinding.FragmentLanguageBindin
 
 class LanguageFragment : Fragment() {
     private lateinit var binding: FragmentLanguageBinding
+    private lateinit var languageAdapter: LanguageAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,5 +21,30 @@ class LanguageFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentLanguageBinding.inflate(inflater,container,false)
         return binding.root
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecycleView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        showLanguage(LanguageAndFrameworkData.languageList)
+    }
+
+    private fun setupRecycleView(){
+        languageAdapter = LanguageAdapter(arrayListOf())
+
+        binding.rvLanguages.apply {
+            layoutManager = GridLayoutManager(requireContext(),2)
+            adapter = languageAdapter
+            setHasFixedSize(true)
+        }
+    }
+
+    private fun showLanguage(data: MutableList<LanguageAndFrameworkModel>){
+        languageAdapter.setData(data)
     }
 }
