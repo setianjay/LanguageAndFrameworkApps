@@ -1,5 +1,6 @@
 package com.setianjay.languageandframeworkapps
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -19,7 +20,7 @@ class LanguageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentLanguageBinding.inflate(inflater,container,false)
+        binding = FragmentLanguageBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,17 +35,29 @@ class LanguageFragment : Fragment() {
         showLanguage(LanguageAndFrameworkData.languageList)
     }
 
-    private fun setupRecycleView(){
-        languageAdapter = LanguageAdapter(arrayListOf())
+    private fun setupRecycleView() {
+        languageAdapter =
+            LanguageAdapter(arrayListOf(), object : LanguageAdapter.OnAdapterListener {
+                override fun onClick(data: LanguageAndFrameworkModel) {
+                    Intent(requireContext(), DetailActivity::class.java).also {
+                        it.putExtra("poster", data.poster)
+                        it.putExtra("title", data.title)
+                        it.putExtra("detail", data.detail)
+                        startActivity(it)
+                    }
+                }
+
+
+            })
 
         binding.rvLanguages.apply {
-            layoutManager = GridLayoutManager(requireContext(),2)
+            layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = languageAdapter
             setHasFixedSize(true)
         }
     }
 
-    private fun showLanguage(data: MutableList<LanguageAndFrameworkModel>){
+    private fun showLanguage(data: MutableList<LanguageAndFrameworkModel>) {
         languageAdapter.setData(data)
     }
 }
