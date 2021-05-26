@@ -15,6 +15,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         showDataDetail()
+        setupListener()
     }
 
     private fun showDataDetail(){
@@ -25,5 +26,16 @@ class DetailActivity : AppCompatActivity() {
         binding.ivPoster.setImageResource(intentPoster)
         binding.tvTitle.text = intentTitle
         binding.tvDetail.text = intentDetail
+    }
+
+    private fun setupListener(){
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }
