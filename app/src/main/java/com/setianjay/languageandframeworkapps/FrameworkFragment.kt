@@ -1,5 +1,6 @@
 package com.setianjay.languageandframeworkapps
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,7 +35,12 @@ class FrameworkFragment : Fragment() {
     private fun setupRecycleView(){
         frameworkAdapter = FrameworkAdapter(arrayListOf(),object: FrameworkAdapter.OnAdapterListener{
             override fun onClick(data: LanguageAndFrameworkModel) {
-
+                Intent(requireContext(), DetailActivity::class.java).also {
+                    it.putExtra("poster", data.poster)
+                    it.putExtra("title", data.title)
+                    it.putExtra("detail", data.detail)
+                    startActivity(it)
+                }
             }
 
         })
