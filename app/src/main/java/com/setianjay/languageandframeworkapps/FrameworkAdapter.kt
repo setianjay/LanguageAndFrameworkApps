@@ -34,4 +34,10 @@ class FrameworkAdapter(private val frameworks: ArrayList<LanguageAndFrameworkMod
             }
         }
     }
+
+    fun setData(data: List<LanguageAndFrameworkModel>){
+        frameworks.clear()
+        frameworks.addAll(data)
+        notifyDataSetChanged()
+    }
 }
