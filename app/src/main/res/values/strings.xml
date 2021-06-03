@@ -8,5 +8,14 @@
     <string name="lets_learn_programming_language">Lets Learn Programming Language</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_name_is_hari_setiaji_you_can_call_me_hari_i_live_in_ncitayam_i_live_with_my_parents_n_ni_am_a_college_student_at_polytechnic_lp3i_jakarta_nmy_major_is_computer_informatic_n_nmy_ambition_is_i_want_to_be_a_professional_programmer_nand_i_want_to_be_a_lucky_person_in_life_and_after_life_aamiin">My name is Hari Setiaji, you can call me Hari. I live in\nCitayam, I live with my parents.\n\nI am a college student at Polytechnic LP3I Jakarta,\nmy major is Computer Informatic.\n\nMy ambition is I want to be a professional programmer\nand I want to be a lucky person in life and after life (Aamiin)</string>
+    <string name="introduction">introduction</string>
+    <string name="my_hobby">my hobby</string>
+    <string name="gaming">Gaming</string>
+    <string name="learning">Learning</string>
+    <string name="saving">Saving</string>
+    <string name="hari_setiaji">Hari Setiaji</string>
+    <string name="setianjay">setianjay_</string>
+    <string name="hari_setiaji2000_gmail_com">hari.setiaji2000@gmail.com</string>
 
 </resources>
