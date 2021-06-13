@@ -12,7 +12,7 @@
         android:id="@+id/vw_background_wall_pink"
         android:layout_width="match_parent"
         android:layout_height="169dp"
-        android:background="@drawable/background_header_profile"
+        android:background="@color/pink_dark"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
