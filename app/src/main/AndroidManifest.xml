@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LanguageAndFrameworkApps">
+        <activity android:name=".FavoriteActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".SplashScreen">
