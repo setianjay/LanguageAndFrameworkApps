@@ -17,5 +17,9 @@
     <string name="hari_setiaji">Hari Setiaji</string>
     <string name="setianjay">setianjay_</string>
     <string name="hari_setiaji2000_gmail_com">hari.setiaji2000@gmail.com</string>
+    <string name="favorite_languages">Favorite Languages</string>
+    <string name="favorite_frameworks">Favorite Frameworks</string>
+    <string name="search_your_favorite_here">Search your favorite here</string>
+    <string name="favorite">Favorite</string>
 
 </resources>
