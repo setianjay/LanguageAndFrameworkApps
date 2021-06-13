@@ -43,6 +43,7 @@ class LanguageFragment : Fragment() {
                         it.putExtra("poster", data.poster)
                         it.putExtra("title", data.title)
                         it.putExtra("detail", data.detail)
+                        it.putExtra("type", "languages")
                         startActivity(it)
                     }
                 }

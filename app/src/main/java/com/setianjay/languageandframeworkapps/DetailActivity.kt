@@ -2,18 +2,25 @@ package com.setianjay.languageandframeworkapps
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import com.setianjay.languageandframeworkapps.database.DatabaseBuilder
+import com.setianjay.languageandframeworkapps.database.entity.ContentEntity
 import com.setianjay.languageandframeworkapps.databinding.ActivityDetailBinding
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity(), View.OnClickListener {
     private val binding by lazy { ActivityDetailBinding.inflate(layoutInflater) }
     private val intentPoster by lazy { intent.getIntExtra("poster",0) }
     private val intentTitle by lazy { intent.getStringExtra("title") }
     private val intentDetail by lazy { intent.getStringExtra("detail") }
+    private val intentType by lazy { intent.getStringExtra("type") }
+    private lateinit var viewModel: ContentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setupViewModel()
         showDataDetail()
         setupListener()
     }
@@ -29,11 +36,38 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setupListener(){
-        binding.ivBack.setOnClickListener {
-            onBackPressed()
-        }
+        binding.ivBack.setOnClickListener(this)
+        binding.ivLove.setOnClickListener(this)
     }
 
+    private fun setupViewModel(){
+        viewModel = ViewModelProvider(
+            this,
+            ContentViewModelFactory(
+               ContentRepository(DatabaseBuilder.getDatabase(applicationContext))
+            )
+        ).get(ContentViewModel::class.java)
+    }
+    
+    override fun onClick(v: View?) {
+        when(v!!.id){
+            R.id.iv_back -> {
+                onBackPressed()
+            }
+            R.id.iv_love -> {
+                viewModel.insert(
+                    ContentEntity(
+                        title = intentTitle!!,
+                        poster = intentPoster,
+                        detail = intentDetail,
+                        type = intentType
+                    )
+                )
+                Toast.makeText(applicationContext, "You add $intentType $intentTitle to favorite", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
