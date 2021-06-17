@@ -5,16 +5,17 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.setianjay.languageandframeworkapps.constant.Constants
 import com.setianjay.languageandframeworkapps.database.DatabaseBuilder
 import com.setianjay.languageandframeworkapps.database.entity.ContentEntity
 import com.setianjay.languageandframeworkapps.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity(), View.OnClickListener {
     private val binding by lazy { ActivityDetailBinding.inflate(layoutInflater) }
-    private val intentPoster by lazy { intent.getIntExtra("poster",0) }
-    private val intentTitle by lazy { intent.getStringExtra("title") }
-    private val intentDetail by lazy { intent.getStringExtra("detail") }
-    private val intentType by lazy { intent.getStringExtra("type") }
+    private val intentPoster by lazy { intent.getIntExtra(Constants.EXTRA_POSTER,0) }
+    private val intentTitle by lazy { intent.getStringExtra(Constants.EXTRA_TITLE) }
+    private val intentDetail by lazy { intent.getStringExtra(Constants.EXTRA_DETAIL) }
+    private val intentType by lazy { intent.getStringExtra(Constants.EXTRA_TYPE) }
     private lateinit var viewModel: ContentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,8 +60,8 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     ContentEntity(
                         title = intentTitle!!,
                         poster = intentPoster,
-                        detail = intentDetail,
-                        type = intentType
+                        detail = intentDetail!!,
+                        type = intentType!!
                     )
                 )
                 Toast.makeText(applicationContext, "You add $intentType $intentTitle to favorite", Toast.LENGTH_SHORT).show()

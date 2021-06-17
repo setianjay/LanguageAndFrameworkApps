@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import com.google.android.material.tabs.TabLayoutMediator
+import com.setianjay.languageandframeworkapps.constant.Constants
 import com.setianjay.languageandframeworkapps.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -59,13 +60,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             when(item!!.itemId){
                 R.id.fav_menu_languages -> {
                     Intent(this,FavoriteActivity::class.java).also{
-                        it.putExtra("type","languages")
+                        it.putExtra(Constants.EXTRA_TYPE,"languages")
                         startActivity(it)
                     }
                 }
                 R.id.fav_menu_frameworks -> {
                     Intent(this,FavoriteActivity::class.java).also{
-                        it.putExtra("type","frameworks")
+                        it.putExtra(Constants.EXTRA_TYPE,"frameworks")
                         startActivity(it)
                     }
                 }

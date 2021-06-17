@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import com.setianjay.languageandframeworkapps.constant.Constants
 import com.setianjay.languageandframeworkapps.databinding.FragmentFrameworkBinding
 
 class FrameworkFragment : Fragment() {
@@ -36,10 +37,10 @@ class FrameworkFragment : Fragment() {
         frameworkAdapter = FrameworkAdapter(arrayListOf(),object: FrameworkAdapter.OnAdapterListener{
             override fun onClick(data: LanguageAndFrameworkModel) {
                 Intent(requireContext(), DetailActivity::class.java).also {
-                    it.putExtra("poster", data.poster)
-                    it.putExtra("title", data.title)
-                    it.putExtra("detail", data.detail)
-                    it.putExtra("type", "frameworks")
+                    it.putExtra(Constants.EXTRA_POSTER, data.poster)
+                    it.putExtra(Constants.EXTRA_TITLE, data.title)
+                    it.putExtra(Constants.EXTRA_DETAIL, data.detail)
+                    it.putExtra(Constants.EXTRA_TYPE, "frameworks")
                     startActivity(it)
                 }
             }

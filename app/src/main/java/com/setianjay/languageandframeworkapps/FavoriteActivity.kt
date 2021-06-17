@@ -27,7 +27,7 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun initData(){
-        intentType = intent.getStringExtra("type") ?: "Not exists"
+        intentType = intent.getStringExtra(Constants.EXTRA_TYPE) ?: "Not exists"
     }
 
     private fun setupViewModel(){
