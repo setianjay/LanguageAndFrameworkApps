@@ -1,5 +1,6 @@
 package com.setianjay.languageandframeworkapps
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.setianjay.languageandframeworkapps.constant.Constants
 import com.setianjay.languageandframeworkapps.database.DatabaseBuilder
+import com.setianjay.languageandframeworkapps.database.entity.ContentEntity
 import com.setianjay.languageandframeworkapps.databinding.ActivityFavoriteBinding
 
 class FavoriteActivity : AppCompatActivity() {
@@ -40,7 +42,18 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun setupRecycleView(){
-        favoriteAdapter = FavoriteAdapter(arrayListOf())
+        favoriteAdapter = FavoriteAdapter(arrayListOf(), object : FavoriteAdapter.OnAdapterListener{
+            override fun onClick(data: ContentEntity) {
+                Intent(this@FavoriteActivity, DetailActivity::class.java).also {
+                    it.putExtra(Constants.EXTRA_POSTER, data.poster)
+                    it.putExtra(Constants.EXTRA_TITLE, data.title)
+                    it.putExtra(Constants.EXTRA_DETAIL, data.detail)
+                    it.putExtra(Constants.EXTRA_TYPE, intentType)
+                    startActivity(it)
+                }
+            }
+
+        })
 
         binding.rvFavorite.apply {
             adapter = favoriteAdapter
