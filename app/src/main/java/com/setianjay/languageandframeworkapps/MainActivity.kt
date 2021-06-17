@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
-import android.widget.Toast
 import com.google.android.material.tabs.TabLayoutMediator
 import com.setianjay.languageandframeworkapps.databinding.ActivityMainBinding
 
@@ -59,10 +58,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         popupMenu.setOnMenuItemClickListener { item: MenuItem? ->
             when(item!!.itemId){
                 R.id.fav_menu_languages -> {
-                    Toast.makeText(this@MainActivity, "Favorite Languages", Toast.LENGTH_SHORT).show()
+                    Intent(this,FavoriteActivity::class.java).also{
+                        it.putExtra("type","languages")
+                        startActivity(it)
+                    }
                 }
                 R.id.fav_menu_frameworks -> {
-                    Toast.makeText(this@MainActivity, "Favorite Frameworks", Toast.LENGTH_SHORT).show()
+                    Intent(this,FavoriteActivity::class.java).also{
+                        it.putExtra("type","frameworks")
+                        startActivity(it)
+                    }
                 }
             }
             true

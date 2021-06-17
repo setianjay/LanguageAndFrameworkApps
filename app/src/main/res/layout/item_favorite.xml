@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="10dp"
     android:layout_marginStart="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginEnd="10dp"
     android:layout_marginBottom="13dp"
-    xmlns:tools="http://schemas.android.com/tools">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp">
 
     <LinearLayout
+        android:id="@+id/container_content_favorite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="32dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="15dp">
 
         <ImageView
             android:id="@+id/iv_favorite"
-            android:layout_width="76dp"
-            android:layout_height="41dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:contentDescription="@string/app_name"
-            tools:src="@drawable/logo_kotlin"/>
+            tools:src="@drawable/logo_kotlin" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
@@ -35,9 +37,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                tools:text="Kotlin"
+                android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textColor="@color/black"/>
+                tools:text="Kotlin" />
 
             <TextView
                 android:id="@+id/tv_favorite_type"

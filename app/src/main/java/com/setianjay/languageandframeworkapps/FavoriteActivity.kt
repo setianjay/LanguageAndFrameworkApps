@@ -2,11 +2,67 @@ package com.setianjay.languageandframeworkapps
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.setianjay.languageandframeworkapps.constant.Constants
+import com.setianjay.languageandframeworkapps.database.DatabaseBuilder
+import com.setianjay.languageandframeworkapps.databinding.ActivityFavoriteBinding
 
 class FavoriteActivity : AppCompatActivity() {
+    private val binding by lazy { ActivityFavoriteBinding.inflate(layoutInflater) }
+    private lateinit var favoriteAdapter: FavoriteAdapter
+    private lateinit var viewModel: ContentViewModel
+    private lateinit var intentType: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_favorit)
+        setContentView(binding.root)
+        initData()
+        setupViewModel()
+        setupRecycleView()
+        setupObserver()
+        setupListener()
+    }
+
+    private fun initData(){
+        intentType = intent.getStringExtra("type") ?: "Not exists"
+    }
+
+    private fun setupViewModel(){
+        viewModel = ViewModelProvider(
+            this,
+            ContentViewModelFactory(
+                ContentRepository(DatabaseBuilder.getDatabase(this@FavoriteActivity))
+            )
+            ).get(ContentViewModel::class.java)
+    }
+
+    private fun setupRecycleView(){
+        favoriteAdapter = FavoriteAdapter(arrayListOf())
+
+        binding.rvFavorite.apply {
+            adapter = favoriteAdapter
+            layoutManager = LinearLayoutManager(this@FavoriteActivity,LinearLayoutManager.VERTICAL,false)
+            setHasFixedSize(true)
+        }
+    }
+
+    private fun setupObserver(){
+        viewModel.getContent(intentType).observe(this@FavoriteActivity, Observer {
+            favoriteAdapter.setData(it)
+        })
+    }
+
+    private fun setupListener(){
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

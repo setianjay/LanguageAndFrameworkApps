@@ -1,7 +1,9 @@
 package com.setianjay.languageandframeworkapps
 
+import androidx.annotation.IdRes
+
 data class LanguageAndFrameworkModel(
-    var poster: Int = 0,
+    @IdRes var poster: Int = 0,
     var title: String = "",
     var detail: String = ""
 )
