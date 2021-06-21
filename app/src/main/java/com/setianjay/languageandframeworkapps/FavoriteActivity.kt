@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -71,6 +72,10 @@ class FavoriteActivity : AppCompatActivity() {
     private fun setupListener(){
         binding.ivBack.setOnClickListener {
             onBackPressed()
+        }
+
+        binding.etSearch.doAfterTextChanged {
+            favoriteAdapter.filter.filter(it.toString())
         }
     }
 
