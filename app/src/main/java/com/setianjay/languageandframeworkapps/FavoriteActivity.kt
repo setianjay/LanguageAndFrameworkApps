@@ -62,6 +62,10 @@ class FavoriteActivity : AppCompatActivity() {
                         .setMessage("Are you sure want delete ${data.title}?")
                         .setPositiveButton("Delete") { _, _ ->
                             viewModel.delete(data)
+                            finish()
+                            overridePendingTransition(0,0)
+                            startActivity(intent)
+                            overridePendingTransition(0,0)
                         }
                         .setNegativeButton("Cancel") { _, _ ->
                             Toast.makeText(
