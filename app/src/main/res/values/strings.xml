@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">LanguageAndFrameworkApps</string>
     <string name="let_s_find_out">Lets Find Out</string>
-    <string name="history_programming_language">History Programming Language</string>
+    <string name="history_programming">History of Languages and Frameworks Programming</string>
     <string name="hari_setiaji_indonesia">Hari Setiaji (Indonesia)</string>
     <string name="by">By</string>
     <string name="hello_hari_setiaji">Hello, Hari Setiaji</string>
-    <string name="lets_learn_programming_language">Lets Learn Programming Language</string>
+    <string name="lets_learn_programming">Let’s Learn Programming From History</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="my_name_is_hari_setiaji_you_can_call_me_hari_i_live_in_ncitayam_i_live_with_my_parents_n_ni_am_a_college_student_at_polytechnic_lp3i_jakarta_nmy_major_is_computer_informatic_n_nmy_ambition_is_i_want_to_be_a_professional_programmer_nand_i_want_to_be_a_lucky_person_in_life_and_after_life_aamiin">My name is Hari Setiaji, you can call me Hari. I live in\nCitayam, I live with my parents.\n\nI am a college student at Polytechnic LP3I Jakarta,\nmy major is Computer Informatic.\n\nMy ambition is I want to be a professional programmer\nand I want to be a lucky person in life and after life (Aamiin)</string>

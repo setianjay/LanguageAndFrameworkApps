@@ -31,10 +31,10 @@
 
     <TextView
         android:id="@+id/tv_label_splashscreen2"
-        style="@style/textPrimary18"
+        style="@style/textPrimary12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/history_programming_language"
+        android:text="@string/history_programming"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_label_splashscreen1" />
