@@ -67,6 +67,9 @@ class FavoriteAdapter(
     fun setData(data: List<ContentEntity>) {
         favorites.clear()
         favorites.addAll(data)
+        favorites.sortBy {
+            it.title
+        }
         notifyDataSetChanged()
     }
 
