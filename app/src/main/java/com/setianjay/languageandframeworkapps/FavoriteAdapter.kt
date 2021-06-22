@@ -26,6 +26,7 @@ class FavoriteAdapter(
 
     interface OnAdapterListener {
         fun onClick(data: ContentEntity)
+        fun onLongClick(data: ContentEntity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
@@ -54,6 +55,11 @@ class FavoriteAdapter(
 
             binding.containerContentFavorite.setOnClickListener {
                 listeners.onClick(data)
+            }
+
+            binding.containerContentFavorite.setOnLongClickListener {
+                listeners.onLongClick(data)
+                true
             }
         }
     }

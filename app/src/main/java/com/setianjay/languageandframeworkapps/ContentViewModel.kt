@@ -10,5 +10,9 @@ class ContentViewModel(private val repository: ContentRepository) : ViewModel() 
         repository.insertContent(content)
     }
 
+    fun delete(content: ContentEntity) = viewModelScope.launch {
+        repository.deleteContent(content)
+    }
+
     fun getContent(type: String): LiveData<List<ContentEntity>> = repository.getContent(type)
 }
